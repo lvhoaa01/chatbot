@@ -1,0 +1,76 @@
+# ---------------------------------------------------------------------------
+# Package
+# ---------------------------------------------------------------------------
+
+[project]
+name = "ontchatbot"
+version = "3.2.1"
+description = "Vietnamese academic-affairs chatbot: an LLM answers from a sourced ontology found through a BM25 index of labels and properties"
+readme = "README.md"
+requires-python = "==3.12.*"
+
+# What both the service and the offline tools need: pyoxigraph stores and reads
+# the TriG ontology, and bm25s ranks the index rows.
+dependencies = [
+    "bm25s>=0.3.11",
+    "numpy>=2.5.1",
+    "pyoxigraph>=0.5.0",
+]
+
+# ---------------------------------------------------------------------------
+# Extras
+# ---------------------------------------------------------------------------
+
+[project.optional-dependencies]
+
+# Everything the deployed service needs, and nothing more: this is what enters
+# the container image, so every package added here costs image size and cold
+# start time. pyshacl checks every admin edit against shapes.ttl before it is
+# written.
+inference = [
+    "httpx>=0.28.0",
+    "pyshacl>=0.40.1",
+    "starlette>=0.47.0",
+    "uvicorn>=0.41.0",
+]
+
+# ---------------------------------------------------------------------------
+# Command-line entry points
+# ---------------------------------------------------------------------------
+
+[project.scripts]
+chat_agent = "ontchatbot.cli.chat:main"
+ontology_search = "ontchatbot.cli.search:main"
+serve_chatbot = "ontchatbot.cli.serve:main"
+
+# ---------------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------------
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ontchatbot"]
+
+[tool.uv]
+package = true
+
+# ---------------------------------------------------------------------------
+# Development
+# ---------------------------------------------------------------------------
+
+# The suite checks the whole ontology against its SHACL shapes, so it needs
+# pyshacl even when the service extra is not installed.
+[dependency-groups]
+dev = [
+    "pyshacl>=0.40.1",
+    "pytest>=9.1.0",
+    "pytest-xdist>=3.8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-n", "auto", "--dist", "loadfile"]

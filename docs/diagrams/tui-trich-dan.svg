@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="640" viewBox="0 0 1220 640" font-family="Noto Sans, DejaVu Sans, sans-serif">
+  <defs>
+    <marker id="mui" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#000000"/>
+    </marker>
+    <style>
+      .o    { fill: #ffffff; stroke: #000000; stroke-width: 2.5; }
+      .odam { fill: #e9e9e9; stroke: #000000; stroke-width: 3; }
+      .tui  { fill: #ffffff; stroke: #000000; stroke-width: 3; stroke-dasharray: 10 6; }
+      .tieu { fill: #000000; font-size: 19px; font-weight: 700; }
+      .tt   { fill: #000000; font-size: 17px; }
+      .ma   { fill: #111111; font-size: 16px; font-family: "DejaVu Sans Mono", monospace; }
+      .mui  { stroke: #000000; stroke-width: 2.5; fill: none; marker-end: url(#mui); }
+      .nhan { fill: #000000; font-size: 16px; }
+    </style>
+  </defs>
+
+  <rect width="1220" height="640" fill="#ffffff"/>
+  <text x="40" y="40" style="font-size:24px; font-weight:700">Mỗi phát biểu mang nguồn của chính nó: vế thứ tư là tên túi trích dẫn</text>
+
+  <!-- Danh tính: ngoài túi -->
+  <rect x="40" y="64" width="700" height="104" rx="10" class="o"/>
+  <text x="60" y="92" class="tieu">Danh tính của mục — nằm NGOÀI mọi túi, không cần trích dẫn</text>
+  <text x="60" y="122" class="ma">:ThuTucNghiHocTamThoi  a  :ThuTucHocVu</text>
+  <text x="60" y="148" class="ma">   rdfs:label "Thủ tục nghỉ học tạm thời"</text>
+
+  <!-- Túi -->
+  <rect x="40" y="200" width="700" height="240" rx="14" class="tui"/>
+  <text x="60" y="232" class="tieu">TÚI TRÍCH DẪN  :TD1052_D24K03</text>
+  <text x="60" y="258" class="nhan">mọi phát biểu do cùng một chỗ của cùng một văn bản khẳng định</text>
+
+  <rect x="60" y="276" width="660" height="42" rx="8" class="o"/>
+  <text x="76" y="303" class="ma">:ThuTucNghiHocTamThoi  :nopTai  :PhongCTCTvaSV</text>
+  <rect x="60" y="328" width="660" height="42" rx="8" class="o"/>
+  <text x="76" y="355" class="ma">:ThuTucNghiHocTamThoi  :canBieuMau  :MauSo09</text>
+  <rect x="60" y="380" width="660" height="42" rx="8" class="o"/>
+  <text x="76" y="407" class="ma">:ThuTucNghiHocTamThoi  :doAiQuyetDinh  :HieuTruong</text>
+
+  <text x="60" y="482" class="tt">Ba phát biểu trên là ba <tspan font-weight="700">quad</tspan>: chủ ngữ · quan hệ · giá trị · <tspan font-weight="700">tên túi</tspan>.</text>
+  <text x="60" y="510" class="tt">Thêm nguồn không thêm mục hay quan hệ nào vào tầng tri thức.</text>
+
+  <!-- Địa chỉ trích dẫn -->
+  <rect x="800" y="200" width="380" height="128" rx="10" class="odam"/>
+  <text x="820" y="230" class="tieu">Địa chỉ trích dẫn</text>
+  <text x="820" y="260" class="ma">:TD1052_D24K03</text>
+  <text x="820" y="288" class="ma">  :toaDo "khoản 3 Điều 24"</text>
+  <text x="820" y="314" class="ma">  :thuocNguon :Nguon1052</text>
+
+  <!-- Nguồn -->
+  <rect x="800" y="382" width="380" height="152" rx="10" class="odam"/>
+  <text x="820" y="412" class="tieu">Nguồn</text>
+  <text x="820" y="442" class="ma">:Nguon1052</text>
+  <text x="820" y="468" class="ma">  :soHieu "1052/QĐ-ĐHNT"</text>
+  <text x="820" y="494" class="ma">  :banHanhNgay "2025-07-17"</text>
+  <text x="820" y="520" class="ma">  :duongDan "https://…pdf"</text>
+
+  <path class="mui" d="M744 300 H796"/>
+  <text x="770" y="288" class="nhan" style="text-anchor:middle">tên túi</text>
+  <path class="mui" d="M990 328 V378"/>
+
+  <path class="mui" d="M990 534 V556"/>
+  <rect x="800" y="560" width="380" height="56" rx="10" class="o"/>
+  <text x="990" y="594" style="font-size:16px; text-anchor:middle">→ chuỗi trích dẫn hiện cho người dùng</text>
+</svg>

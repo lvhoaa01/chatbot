@@ -1,0 +1,36 @@
+%% Sơ đồ khái niệm cho hình trung tâm của poster.
+%% Đây là nguồn Mermaid, không phải sản phẩm đồ họa poster cuối.
+block-beta
+    columns 3
+
+    Q["1 · Câu hỏi<br/>tự nhiên"]
+    L1["2 · LLM hiểu ý<br/>khi cần: tạo cụm tra cứu"]
+    S["3 · BM25<br/>chọn 3 mục liên quan"]
+
+    O["Nhánh ngoài phạm vi · bước 2<br/>được hướng dẫn từ chối"]
+    N["Theo hướng dẫn: không thấy → thử lại 1 lần<br/>vẫn thiếu/thiếu chi tiết → nêu giới hạn"]
+    G[("4 · Đồ thị tri thức RDF/TriG<br/>hồ sơ kèm nguồn đã khai báo")]
+
+    A["6 · Đủ dữ kiện<br/>trả lời, có thể nêu nguồn"]
+    L2["5 · LLM được hướng dẫn<br/>diễn đạt · xét mức đủ căn cứ"]
+    V["Nguồn chính thức → biên soạn<br/>kiểm khai báo nguồn · SHACL kiểm cấu trúc"]
+
+    Q --> L1
+    L1 --> S
+    S --> G
+    G --> L2
+    L2 --> A
+    L1 -.-> O
+    V --> G
+    S -.-> N
+    L2 -.-> N
+
+    style Q fill:#EAF2FF,stroke:#2457A6,color:#17324D,stroke-width:2px
+    style L1 fill:#EAF2FF,stroke:#2457A6,color:#17324D,stroke-width:2px
+    style L2 fill:#EAF2FF,stroke:#2457A6,color:#17324D,stroke-width:2px
+    style S fill:#FFFFFF,stroke:#17324D,color:#17324D,stroke-width:2px
+    style G fill:#DDF4F1,stroke:#0F766E,color:#17324D,stroke-width:3px
+    style V fill:#FFF4D6,stroke:#C47A12,color:#8A5200,stroke-width:2px
+    style A fill:#FFFFFF,stroke:#16803D,color:#17324D,stroke-width:2px
+    style N fill:#FFF4D6,stroke:#C47A12,color:#8A5200,stroke-width:2px
+    style O fill:#FFF4D6,stroke:#C47A12,color:#8A5200,stroke-width:2px
